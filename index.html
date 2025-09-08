@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="CSS/footer.css">
     <title>TecNM | Departamento de Desarrollo Académico</title>
     <link rel="icon" type="image/png" href="img/tecnmicono.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/responsiveslides/1.55/responsiveslides.min.css">
+    <script src="js/responsiveslides.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
 </head>
+
 <body>
     <header>
-        <div class="contenedor_cabecera ancho">
+        <div class="contenedor_cabecera">
             <figure>
                 <a href="https://www.gob.mx/" target="_blank">
                     <img src="img/logo_gobierno.svg" alt="">
@@ -26,7 +33,7 @@
         </div>
     </header>
 
-    <div class="contenedor_logos ancho">
+    <div class="contenedor_logos">
         <div class="logos_itm">
             <figure class="logo1">
                 <a href="https://www.gob.mx/sep" target="_blank">
@@ -72,27 +79,28 @@
     </div>
 
 
-    <!-- <main class="contenedor">
-    <section class="contenido">
-    
-        <div class="info">
-            <div class="logo-departamento">
-                <img src="img/Logo departamento2.png" alt="Logo Departamento">
-            </div>
-            <h1>Departamento de Desarrollo Académico</h1>
-            <p>
-                El Departamento de Desarrollo Académico es el área responsable de planear, 
-                coordinar y evaluar las actividades que fortalecen la formación integral de 
-                los estudiantes y el desarrollo profesional de los docentes.
-            </p>
-        </div> -->
+    <!-- !-- menu  -->
 
+        <section class="contenedor_slide">
+        <ul class="rslides">
+            <li><img src="img/slidemain2.jpg" alt=""></li>
+            <li><img src="img/slide1main.jpg" alt=""></li>
+            <li><img src="img/slidemain3.jpg" alt=""></li>
+        </ul>
     
-        <!-- <div class="imagen">
-            <img src="img/logo-tecnm.png" alt="Imagen representativa">
-        </div> -->
-    <!-- </section>  -->
-    
+        <div class="filtro">
+            <div class="info_texto">
+                <h1 class="imagens"><img src="img/Logo departamento2.png" alt=""></h1>
+
+                <h2 class="titulo">Departamento de Desarrollo Académico</h2>
+                <p class="subtitulo">
+                    El Departamento de Desarrollo Académico es el área responsable de planear, 
+                    coordinar y evaluar las actividades que fortalecen la formación integral de 
+                    los estudiantes y el desarrollo profesional de los docentes.
+                </p>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -198,12 +206,39 @@
 
 
 
+<!-- galeria -->
+<section class="contenedor_galeria ancho">
+            <h2 class="titulo_seccion">Galeria</h2>
+        
+            <div class="galeria_fotos">
+                <a href="img/Logo departamento2.png" data-fancybox="galeria">
+                <img src="img/Logo departamento2.png" alt="Foto 1">
+                </a>
+            <a href="img/slide1main.jpg" data-fancybox="galeria">
+                <img src="img/slide1main.jpg" alt="Foto 2">
+            </a>
+            <a href="img/slidemain2.jpg" data-fancybox="galeria">
+                <img src="img/slidemain2.jpg" alt="Foto 3">
+            </a>
+            <a href="img/slidemain3.jpg" data-fancybox="galeria">
+                <img src="img/slidemain3.jpg" alt="Foto 4">
+            </a>
+            </div>
+        </section>
 
 
 
 
 
 
+
+
+
+
+
+
+
+<!--  -->
     <footer class="footer">
         <div class="footer_container">
             <!-- Columna 1 -->
@@ -240,5 +275,22 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+    $(function () {
+    $(".rslides").responsiveSlides({
+      auto: true,        // autoplay
+      speed: 600,        // velocidad de transición (ms)
+      timeout: 4000,     // tiempo entre slides (ms)
+      pager: false,      // puntos
+      nav: false,         // flechas Prev/Next
+      pause: true,       // pausa al pasar el mouse
+        pauseControls: true,
+        namespace: "rslides"
+    });
+    });
+</script>
+
 </body>
 </html>
