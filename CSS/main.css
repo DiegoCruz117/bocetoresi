@@ -8,10 +8,108 @@ html{
     scroll-behavior: smooth;
 }
 .ancho{
-    max-width:1200px;
+    max-width:1300px;
     margin:auto;
     /* border:1px red solid; */
 }
+
+/* ----------------------------------------- */
+.rslides {
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    min-height: 400px;
+    padding: 0;
+    margin: 0;
+}
+
+.rslides li {
+    position: absolute;
+    display: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.rslides li:first-child {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.rslides img {
+    display: block;
+    height: auto;
+    float: left;
+    width: 100%;
+    object-fit: cover;
+    min-height: 400px;
+    border: 0;
+}
+
+.contenedor_slide {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Centrar el overlay sobre la imagen */
+.filtro {
+    position: absolute;
+    z-index: 2;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;   /* centrado horizontal */
+    align-items: center;       /* centrado vertical   */
+    padding: 0 16px;           /* un poco de respiro lateral */
+    text-align: center;        /* centra el texto */
+}
+
+/* Contenido centrado y con ancho máximo cómodo */
+.filtro .info_texto {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.filtro { position: absolute; z-index: 2; }
+.filtro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.65); /* oscurece un poco la imagen */
+    z-index: -1;                 /* queda detrás del texto */
+}
+
+
+/* Si tu h1 es un logo (imagen), céntralo también */
+.imagens img {
+    display: block;
+    max-width: 220px;  /* ajusta al tamaño que prefieras */
+    height: auto;
+    margin: 0 auto;
+    border-radius:  50%;
+}
+
+.titulo{
+    color: #f0f0f0;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.subtitulo {
+    color: #f0f0f0;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+/* ---------------------------------- */
+
 .seccion-noticias {
     padding: 32px 16px;
 }
@@ -214,4 +312,84 @@ html{
 .pie-eventos{ margin-top:16px; text-align:center; }
 .link-todos{ color:#1B396A; font-weight:800; text-decoration:none; }
 .link-todos:hover{ text-decoration:underline; }
+
+/* ---------------------------------- */
+
+
+
+/* ===== Sección galería ===== */
+.contenedor_galeria{
+  padding: 28px 16px;
+  background: var(--gris, #f5f5f7);
+}
+
+.titulo_seccion{
+  text-align: center;
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+.titulo_seccion::after{
+  content:"";
+  display:block;
+  width: 80px; height: 4px;
+  margin: 10px auto 0;
+  border-radius: 3px;
+}
+
+/* ===== Galería en dos columnas ===== */
+.galeria_fotos{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* dos columnas */
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;                   /* centrado */
+}
+
+/* Tarjetas */
+.galeria_fotos a{
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.galeria_fotos a:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+
+/* Imagen */
+.galeria_fotos img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;              /* altura consistente */
+  transition: transform .4s ease;
+}
+.galeria_fotos a:hover img{
+  transform: scale(1.05);
+}
+
+/* Overlay con caption (usa el alt de la imagen) */
+.galeria_fotos a::after{
+  content: attr(alt);
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 12px 16px;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 100%);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.galeria_fotos a:hover::after{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
